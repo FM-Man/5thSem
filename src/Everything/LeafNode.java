@@ -1,8 +1,8 @@
-package x;
+package Everything;
 
 import java.util.Arrays;
 
-import static x.HelperFunction.linearNullSearch;
+import static Everything.HelperFunction.linearNullSearch;
 
 public class LeafNode extends Node {
     int maxNumPairs;
@@ -28,11 +28,11 @@ public class LeafNode extends Node {
 
     /**
      * Constructor
-     * @param dps: list of x.KeyValuePair objects to be immediately inserted
-     *             into new x.LeafNode object
+     * @param dps: list of Everything.KeyValuePair objects to be immediately inserted
+     *             into new Everything.LeafNode object
      * @param m: order of B+ tree that is used to calculate maxNumPairs and
      * 		     minNumPairs
-     * @param parent: parent of newly created child x.LeafNode
+     * @param parent: parent of newly created child Everything.LeafNode
      */
     public LeafNode(int m, KeyValuePair[] dps, InternalNode parent) {
         this.maxNumPairs = m - 1;
@@ -58,7 +58,7 @@ public class LeafNode extends Node {
 
     /**
      * This method attempts to insert a dictionary pair within the dictionary
-     * of the x.LeafNode object. If it succeeds, numPairs increments, the
+     * of the Everything.LeafNode object. If it succeeds, numPairs increments, the
      * dictionary is sorted, and the boolean true is returned. If the method
      * fails, the boolean false is returned.
      * @param dp: the dictionary pair to be inserted
@@ -83,34 +83,34 @@ public class LeafNode extends Node {
     }
 
     /**
-     * This simple method determines if the x.LeafNode is deficient, i.e.
-     * the numPairs within the x.LeafNode object is below minNumPairs.
-     * @return a boolean indicating whether or not the x.LeafNode is deficient
+     * This simple method determines if the Everything.LeafNode is deficient, i.e.
+     * the numPairs within the Everything.LeafNode object is below minNumPairs.
+     * @return a boolean indicating whether or not the Everything.LeafNode is deficient
      */
     public boolean isDeficient() { return numPairs < minNumPairs; }
 
     /**
-     * This simple method determines if the x.LeafNode is full, i.e. the
-     * numPairs within the x.LeafNode is equal to the maximum number of pairs.
-     * @return a boolean indicating whether or not the x.LeafNode is full
+     * This simple method determines if the Everything.LeafNode is full, i.e. the
+     * numPairs within the Everything.LeafNode is equal to the maximum number of pairs.
+     * @return a boolean indicating whether or not the Everything.LeafNode is full
      */
     public boolean isFull() { return numPairs == maxNumPairs; }
 
     /**
-     * This simple method determines if the x.LeafNode object is capable of
-     * lending a dictionary pair to a deficient leaf node. The x.LeafNode
+     * This simple method determines if the Everything.LeafNode object is capable of
+     * lending a dictionary pair to a deficient leaf node. The Everything.LeafNode
      * object can lend a dictionary pair if its numPairs is greater than
      * the minimum number of pairs it can hold.
-     * @return a boolean indicating whether or not the x.LeafNode object can
+     * @return a boolean indicating whether or not the Everything.LeafNode object can
      * give a dictionary pair to a deficient leaf node
      */
     public boolean isLendable() { return numPairs > minNumPairs; }
 
     /**
-     * This simple method determines if the x.LeafNode object is capable of
+     * This simple method determines if the Everything.LeafNode object is capable of
      * being merged with, which occurs when the number of pairs within the
-     * x.LeafNode object is equal to the minimum number of pairs it can hold.
-     * @return a boolean indicating whether or not the x.LeafNode object can
+     * Everything.LeafNode object is equal to the minimum number of pairs it can hold.
+     * @return a boolean indicating whether or not the Everything.LeafNode object can
      * be merged with
      */
     public boolean isMergeable() {

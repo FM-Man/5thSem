@@ -1,4 +1,4 @@
-package x;
+package Everything;
 
 public class KeyValuePair  implements Comparable<KeyValuePair> {
     public String english;

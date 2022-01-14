@@ -8424,7 +8424,7 @@
 |wrongdoing|অনিয়ম
 |wrongly|ভুলভাবে
 |wry|পাকানো
-|x|এক্স
+|Everything|এক্স
 |xenon|গ্যাসবিশেষ
 |yard|এক গজ
 |yarn|বুনা সুতা
@@ -12575,8 +12575,8 @@
 |words|শব্দগুলি
 |workspace|ওয়ার্কস্পেস
 |workstation|ওয়ার্কস্টেশন
-|x-rays|রঞ্জন রশ্মি
-|x-server|এক্স-সার্ভার
+|Everything-rays|রঞ্জন রশ্মি
+|Everything-server|এক্স-সার্ভার
 |xine|জাইন
 |xine-stream|জাইন স্ট্রীম
 |xml|এক্স-এম-এল
@@ -16637,7 +16637,7 @@
 |waddle|হেলেদুলে চলা
 |youth|তারুণ্য
 |youth|যৌবন
-|x|ইংরেজী বর্ণমালার চতুর্বিংশ বর্ণ
+|Everything|ইংরেজী বর্ণমালার চতুর্বিংশ বর্ণ
 |virtually|কার্যত
 |wager|পণ
 |viscera|অন্তর্যন্ত্র
@@ -17130,8 +17130,8 @@
 |wrath|কোপ
 |whither|কোথায়
 |whither|যেখানে
-|x-rays|এক্স-রশ্মি
-|x-rays|রঞ্জনরশ্মি
+|Everything-rays|এক্স-রশ্মি
+|Everything-rays|রঞ্জনরশ্মি
 |wage-earmer|মজুর
 |wage-earmer|যে ব্যক্তি বেতন বা মজুরির বিনিময়ে খাটে
 |wage-earmer|শ্রমিক

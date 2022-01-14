@@ -1,9 +1,8 @@
-package x;
+package Everything;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
-import static x.HelperFunction.*;
+import static Everything.HelperFunction.*;
 
 public class BPT {
 

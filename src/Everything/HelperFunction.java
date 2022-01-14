@@ -1,10 +1,10 @@
-package x;
+package Everything;
 
 import java.util.Arrays;
 import java.util.Comparator;
 
-import static x.BPT.m;
-import static x.BPT.root;
+import static Everything.BPT.m;
+import static Everything.BPT.root;
 
 public class HelperFunction {
 
@@ -12,7 +12,7 @@ public class HelperFunction {
 
     /**
      * This method performs a standard binary search on a sorted
-     * x.KeyValuePair[] and returns the index of the dictionary pair
+     * Everything.KeyValuePair[] and returns the index of the dictionary pair
      * with target key t if found. Otherwise, this method returns a negative
      * value.
      * @param dps: list of dictionary pairs sorted by key within leaf node
@@ -33,8 +33,8 @@ public class HelperFunction {
      * This method starts at the root of the B+ tree and traverses down the
      * tree via key comparisons to the corresponding leaf node that holds 'key'
      * within its dictionary.
-     * @param key: the unique key that lies within the dictionary of a x.LeafNode object
-     * @return the x.LeafNode object that contains the key within its dictionary
+     * @param key: the unique key that lies within the dictionary of a Everything.LeafNode object
+     * @return the Everything.LeafNode object that contains the key within its dictionary
      */
     public static LeafNode findLeafNode(String key) {
 
@@ -47,7 +47,7 @@ public class HelperFunction {
             if (key.compareTo(keys[i]) < 0) { break; }
         }
 
-		/* Return node if it is a x.LeafNode object,
+		/* Return node if it is a Everything.LeafNode object,
 		   otherwise repeat the search function a level down */
         Node child = root.childPointers[i];
         if (child instanceof LeafNode) {
@@ -68,7 +68,7 @@ public class HelperFunction {
             if (key.compareTo(keys[i]) < 0) { break; }
         }
 
-		/* Return node if it is a x.LeafNode object,
+		/* Return node if it is a Everything.LeafNode object,
 		   otherwise repeat the search function a level down */
         Node childNode = node.childPointers[i];
         if (childNode instanceof LeafNode) {
@@ -79,10 +79,10 @@ public class HelperFunction {
     }
 
     /**
-     * Given a list of pointers to x.Node objects, this method returns the index of
-     * the pointer that points to the specified 'node' x.LeafNode object.
-     * @param pointers: a list of pointers to x.Node objects
-     * @param node: a specific pointer to a x.LeafNode
+     * Given a list of pointers to Everything.Node objects, this method returns the index of
+     * the pointer that points to the specified 'node' Everything.LeafNode object.
+     * @param pointers: a list of pointers to Everything.Node objects
+     * @param node: a specific pointer to a Everything.LeafNode
      * @return (int) index of pointer in list of pointers
      */
     public static int findIndexOfPointer(Node[] pointers, LeafNode node) {
@@ -107,7 +107,7 @@ public class HelperFunction {
 
     /**
      * This method performs a standard linear search on a sorted
-     * x.KeyValuePair[] and returns the index of the first null entry found.
+     * Everything.KeyValuePair[] and returns the index of the first null entry found.
      * Otherwise, this method returns a -1. This method is primarily used in
      * place of binarySearch() when the target t = null.
      * @param dps: list of dictionary pairs sorted by key within leaf node
@@ -121,11 +121,11 @@ public class HelperFunction {
     }
 
     /**
-     * This method performs a standard linear search on a list of x.Node[] pointers
+     * This method performs a standard linear search on a list of Everything.Node[] pointers
      * and returns the index of the first null entry found. Otherwise, this
      * method returns a -1. This method is primarily used in place of
      * binarySearch() when the target t = null.
-     * @param pointers: list of x.Node[] pointers
+     * @param pointers: list of Everything.Node[] pointers
      * @return index of the target value if found, else -1
      */
     public static int linearNullSearch(Node[] pointers) {
@@ -139,7 +139,7 @@ public class HelperFunction {
     /**
      * This is a specialized sorting method used upon lists of KeyValuePairs
      * that may contain interspersed null values.
-     * @param dictionary: a list of x.KeyValuePair objects
+     * @param dictionary: a list of Everything.KeyValuePair objects
      */
     public static void sortDictionary(KeyValuePair[] dictionary) {
         Arrays.sort(dictionary, new Comparator<KeyValuePair>() {
@@ -154,13 +154,13 @@ public class HelperFunction {
     }
 
     /**
-     * This method modifies the x.InternalNode 'in' by removing all pointers within
+     * This method modifies the Everything.InternalNode 'in' by removing all pointers within
      * the childPointers after the specified split. The method returns the removed
      * pointers in a list of their own to be used when constructing a new
-     * x.InternalNode sibling.
-     * @param in: an x.InternalNode whose childPointers will be split
+     * Everything.InternalNode sibling.
+     * @param in: an Everything.InternalNode whose childPointers will be split
      * @param split: the index at which the split in the childPointers begins
-     * @return a x.Node[] of the removed pointers
+     * @return a Everything.Node[] of the removed pointers
      */
     public static Node[] splitChildPointers(InternalNode in, int split) {
 
@@ -181,11 +181,11 @@ public class HelperFunction {
      * dictionaries are of equal length, but each of the resulting dictionaries
      * holds half of the original dictionary's non-null values. This method is
      * primarily used when splitting a node within the B+ tree. The dictionary of
-     * the specified x.LeafNode is modified in place. The method returns the
+     * the specified Everything.LeafNode is modified in place. The method returns the
      * remainder of the KeyValuePairs that are no longer within ln's dictionary.
      * @param ln: list of KeyValuePairs to be split
      * @param split: the index at which the split occurs
-     * @return x.KeyValuePair[] of the two split dictionaries
+     * @return Everything.KeyValuePair[] of the two split dictionaries
      */
     public static KeyValuePair[] splitDictionary(LeafNode ln, int split) {
 
@@ -209,7 +209,7 @@ public class HelperFunction {
      * is called to remedy the issue, i.e. to split the overfull node. This method
      * calls the sub-methods of splitKeys() and splitChildPointers() in order to
      * split the overfull node.
-     * @param in: an overfull x.InternalNode that is to be split
+     * @param in: an overfull Everything.InternalNode that is to be split
      */
     public static void splitInternalNode(InternalNode in) {
 
@@ -222,7 +222,7 @@ public class HelperFunction {
         String[] halfKeys = splitKeys(in.keys, midpoint);
         Node[] halfPointers = splitChildPointers(in, midpoint);
 
-        // Change degree of original x.InternalNode in
+        // Change degree of original Everything.InternalNode in
         in.degree = linearNullSearch(in.childPointers);
 
         // Create new sibling internal node and add half of keys and pointers
@@ -269,7 +269,7 @@ public class HelperFunction {
     /**
      * This method modifies a list of Integer-typed objects that represent keys
      * by removing half of the keys and returning them in a separate Integer[].
-     * This method is used when splitting an x.InternalNode object.
+     * This method is used when splitting an Everything.InternalNode object.
      * @param keys: a list of Integer objects
      * @param split: the index where the split is to occur
      * @return Integer[] of removed keys
