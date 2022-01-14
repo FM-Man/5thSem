@@ -18,6 +18,8 @@ public class Main {
             String [] splitString = currentLine.split("[|]",0);
             KeyValuePair keyValuePair = new KeyValuePair(splitString[1],splitString[2]);
 
+            if(keyValuePair.english.contains(".")) keyValuePair.english = keyValuePair.english.replace(".", " ");
+
             if(dictionary.size()!=0){
                 if(!dictionary.get(dictionary.size()-1).english.equals(keyValuePair.english))
                     dictionary.add(keyValuePair);
