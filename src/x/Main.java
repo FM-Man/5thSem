@@ -39,9 +39,12 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("all successfull");
-        while (true){
-            String s = scanner.nextLine();
-            bpt.search(s);
+        for (KeyValuePair kvp:
+             dictionary) {
+            System.out.println(kvp.english+" "+bpt.search(kvp.english));
         }
+
+        String s = scanner.nextLine();
+        System.out.println(bpt.search(s));
     }
 }
