@@ -47,7 +47,9 @@ public class HelperFunction {
             if (key.compareTo(keys[i]) < 0) { break; }
         }
 
-		/* Return node if it is a Everything.LeafNode object,
+        //2 3  5 6     4
+
+		/* Return node if it is a LeafNode object,
 		   otherwise repeat the search function a level down */
         Node child = root.childPointers[i];
         if (child instanceof LeafNode) {
@@ -189,7 +191,7 @@ public class HelperFunction {
      */
     public static KeyValuePair[] splitDictionary(LeafNode ln, int split) {
 
-        KeyValuePair[] dictionary = ln.dictionary;
+        KeyValuePair[] dictionary = ln.pairs;
 
 		/* Initialize two dictionaries that each hold half of the original
 		   dictionary values */

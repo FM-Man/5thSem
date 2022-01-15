@@ -13,12 +13,11 @@ public class KeyValuePair  implements Comparable<KeyValuePair> {
     /**
      * This is a method that allows comparisons to take place between
      * DictionaryPair objects in order to sort them later on
-     * @param o
-     * @return
+     * @param o the one to compare
+     * @return negative if first one is smaller 0 if equal and + if bigger
      */
 
     public int compareTo(KeyValuePair o) {
         return english.compareTo(o.english);
     }
-
 }

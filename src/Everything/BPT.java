@@ -44,7 +44,6 @@ public class BPT {
 
         }
         else {
-
             // Find leaf node to insert into
             LeafNode ln = (root == null) ? firstLeaf : findLeafNode(key);
 
@@ -52,9 +51,9 @@ public class BPT {
             if (!ln.insert(new KeyValuePair(key, value))) {
 
                 // Sort all the dictionary pairs with the included pair to be inserted
-                ln.dictionary[ln.numPairs] = new KeyValuePair(key, value);
+                ln.pairs[ln.numPairs] = new KeyValuePair(key, value);
                 ln.numPairs++;
-                sortDictionary(ln.dictionary);
+                sortDictionary(ln.pairs);
 
                 // Split the sorted pairs into two halves
                 int midpoint = getMidpoint();
@@ -95,10 +94,9 @@ public class BPT {
                 ln.rightSibling = newLeafNode;
                 newLeafNode.leftSibling = ln;
 
-                if (this.root == null) {
-
+                if (root == null) {
                     // Set the root of B+ tree to be the parent
-                    this.root = ln.parent;
+                    root = ln.parent;
 
                 }
                 else {
@@ -133,7 +131,7 @@ public class BPT {
         LeafNode ln = (this.root == null) ? this.firstLeaf : findLeafNode(key);
 
         // Perform binary search to find index of key within dictionary
-        KeyValuePair[] dps = ln.dictionary;
+        KeyValuePair[] dps = ln.pairs;
         int index = binarySearch(dps, ln.numPairs, key);
 
         // If index negative, the key doesn't exist in B+ tree

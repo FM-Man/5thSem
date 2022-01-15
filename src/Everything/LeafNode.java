@@ -10,7 +10,7 @@ public class LeafNode extends Node {
     int numPairs;
     LeafNode leftSibling;
     LeafNode rightSibling;
-    KeyValuePair[] dictionary;
+    KeyValuePair[] pairs;
 
     /**
      * Constructor
@@ -21,7 +21,7 @@ public class LeafNode extends Node {
     public LeafNode(int m, KeyValuePair dp) {
         this.maxNumPairs = m - 1;
         this.minNumPairs = (int)(Math.ceil(m/2) - 1);
-        this.dictionary = new KeyValuePair[m];
+        this.pairs = new KeyValuePair[m];
         this.numPairs = 0;
         this.insert(dp);
     }
@@ -37,7 +37,7 @@ public class LeafNode extends Node {
     public LeafNode(int m, KeyValuePair[] dps, InternalNode parent) {
         this.maxNumPairs = m - 1;
         this.minNumPairs = (int)(Math.ceil(m/2) - 1);
-        this.dictionary = dps;
+        this.pairs = dps;
         this.numPairs = linearNullSearch(dps);
         this.parent = parent;
     }
@@ -50,7 +50,7 @@ public class LeafNode extends Node {
     public void deleteKeyValuePair(int index) {
 
         // Delete dictionary pair from leaf
-        this.dictionary[index] = null;
+        this.pairs[index] = null;
 
         // Decrement numPairs
         numPairs--;
@@ -66,17 +66,15 @@ public class LeafNode extends Node {
      */
     public boolean insert(KeyValuePair dp) {
         if (this.isFull()) {
-
             /* Flow of execution goes here when numPairs == maxNumPairs */
-
             return false;
         }
         else {
 
             // Insert dictionary pair, increment numPairs, sort dictionary
-            this.dictionary[numPairs] = dp;
+            this.pairs[numPairs] = dp;
             numPairs++;
-            Arrays.sort(this.dictionary, 0, numPairs);
+            Arrays.sort(this.pairs, 0, numPairs);
 
             return true;
         }
