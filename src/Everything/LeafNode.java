@@ -48,10 +48,8 @@ public class LeafNode extends Node {
      * @param index: the location within the dictionary to be set to null
      */
     public void deleteKeyValuePair(int index) {
-
         // Delete dictionary pair from leaf
         this.pairs[index] = null;
-
         // Decrement numPairs
         numPairs--;
     }

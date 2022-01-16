@@ -13,7 +13,7 @@ public class BPT {
 
     public BPT(int m) {
         this.m = m;
-        this.root = null;
+        root = null;
     }
 
 
@@ -35,7 +35,6 @@ public class BPT {
      */
     public void insert(String key, String value){
         if (isEmpty()) {
-
             /* Flow of execution goes here only when first insert takes place */
 
             // Create leaf node as first node in B plus tree (root is null)
@@ -57,7 +56,7 @@ public class BPT {
 
                 // Split the sorted pairs into two halves
                 int midpoint = getMidpoint();
-                KeyValuePair[] halfDict = splitDictionary(ln, midpoint);
+                KeyValuePair[] halfDict = splitDictionary(ln, midpoint); //2 3 4 // 5 6 7 8
 
                 if (ln.parent == null) {
 
@@ -83,7 +82,7 @@ public class BPT {
                 LeafNode newLeafNode = new LeafNode(this.m, halfDict, ln.parent);
 
                 // Update child pointers of parent node
-                int pointerIndex = ln.parent.findIndexOfPointer(ln) + 1;
+                int pointerIndex = ln.parent.findIndexOfPointer(ln) + 1;//5 nln->6
                 ln.parent.insertChildPointer(newLeafNode, pointerIndex);
 
                 // Make leaf nodes siblings of one another
@@ -128,7 +127,7 @@ public class BPT {
         if (isEmpty()) { return null; }
 
         // Find leaf node that holds the dictionary key
-        LeafNode ln = (this.root == null) ? this.firstLeaf : findLeafNode(key);
+        LeafNode ln = (root == null) ? firstLeaf : findLeafNode(key);
 
         // Perform binary search to find index of key within dictionary
         KeyValuePair[] dps = ln.pairs;
