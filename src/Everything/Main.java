@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Main {
     public static ArrayList<KeyValuePair> dictionary = new ArrayList<>();
-    public static int n = 5;
+    public static int n = 7;
 
     public static void initDictionary() throws FileNotFoundException {
         File rawDictionary = new File("Translation.txt");
@@ -33,18 +33,29 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         initDictionary();                                       //process the raw dictionary
 
-        BPT bpt = new BPT(n-1);                             //create a new bpt
+        BPT bpt = new BPT(n);                             //create a new bpt
 
         for (KeyValuePair entry: dictionary) {                 //insert
             bpt.insert(entry.english, entry.bengali);
+            String rootKeys = "";
+            if(bpt.root != null){
+                for(String s : bpt.root.keys){
+                    rootKeys+=" "+s;
+                }
+            }
+
+            System.out.println(entry.english + " -> " + rootKeys);
         }
 
-        for (KeyValuePair kvp: dictionary) {                    //search
-            System.out.println(kvp.english+" "+bpt.search(kvp.english));
+//        for (KeyValuePair kvp: dictionary) {                    //search
+//            System.out.println(kvp.english+" "+bpt.search(kvp.english));
+//        }
+        Scanner scanner = new Scanner(System.in);
+        while(true){
+            String s = scanner.nextLine();      //custom search
+            System.out.println(bpt.search(s));
         }
 
-        Scanner scanner = new Scanner(System.in);               //custom search
-        String s = scanner.nextLine();
-        System.out.println(bpt.search(s));
+
     }
 }

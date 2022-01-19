@@ -11,8 +11,8 @@ public class BPT {
     public static LeafNode firstLeaf;
 
 
-    public BPT(int m) {
-        this.m = m;
+    public BPT(int n) {
+        m = n-1;
         root = null;
     }
 

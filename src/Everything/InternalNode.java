@@ -15,8 +15,8 @@ public class InternalNode extends Node {
      * @param keys: the list of keys that Everything.InternalNode is initialized with
      */
     public InternalNode(int m, String[] keys) {
-        this.maxDegree = m-1;
-        this.minDegree = (int)Math.ceil((m-1)/2.0);
+        this.maxDegree = m;
+        this.minDegree = (int)Math.ceil(m/2.0);
         this.degree = 0;
         this.keys = keys;
         this.childPointers = new Node[this.maxDegree+1];
